@@ -18,6 +18,7 @@
         });
         
         const data = await response.json();
+        console.log(data);
         if (data.success) {
             const resultados = document.getElementById('resultados');
             resultados.innerHTML = `
@@ -28,6 +29,9 @@
                 <h3>Archivos encontrados:</h3>
                 <ul>
                     ${data.estructura.archivos.map(archivo => `<li>${archivo}</li>`).join('')}
+                </ul>
+                <ul>
+                    ${data.estructura.urls_archivos.map(url => `<li>${url.url}</li>`).join('')}
                 </ul>
             `;
         } else {
